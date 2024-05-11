@@ -1,6 +1,5 @@
-import React, { Dispatch, ReactElement, SetStateAction, useState } from 'react';
+import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import Button from './Button';
-import { format } from 'date-fns';
 import Input from './Input';
 
 interface Props {
