@@ -1,6 +1,7 @@
 import React, { Dispatch, ReactElement, SetStateAction } from 'react';
 import Button from './Button';
 import Input from './Input';
+import { createPortal } from 'react-dom';
 
 interface Props {
   open: boolean;
@@ -20,7 +21,7 @@ export default function AddProjectDialog({
     console.log('TODO');
   }
 
-  return (
+  const dialogComponent = (
     <dialog
       className="backdrop:bg-stone-900/90 p-4 rounded-md shadow-md w-[35rem] mt-16"
       open={open}
@@ -42,4 +43,9 @@ export default function AddProjectDialog({
       </div>
     </dialog>
   );
+
+  const container = document.getElementById('rightSide');
+
+  // Using a portal to bring this dialog to the high level of the DOM.
+  return createPortal(dialogComponent, container!);
 }
