@@ -37,7 +37,7 @@ export default function AddProjectDialog({
         <p className="flex flex-col gap-4 my-4">
           <Input type="text" label="Title" />
           <Input type="text" label="Description" />
-          <Input type="date" label="Due Date" />
+          <Input type="date" label="Due Date" min={new Date().toISOString()} />
         </p>
       </div>
     </dialog>
