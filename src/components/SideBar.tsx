@@ -1,8 +1,11 @@
 import React, { ReactElement, useState } from 'react';
 import Button from './Button';
-import AddProjectDialog from './AddProjectDialog';
+import ProjectList from './ProjectList';
+import AddProject from './AddProject';
+import { ProjectContext, useProjectContext } from './ProjectProvider';
 
 export default function SideBar(): ReactElement {
+  const { projectList, setProjectList } = useProjectContext();
   const [showAddProject, setShowAddProject] = useState<boolean>(false);
 
   function handleAddProject() {
@@ -12,8 +15,8 @@ export default function SideBar(): ReactElement {
   return (
     <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
       {showAddProject && (
-        <AddProjectDialog
-          open={showAddProject}
+        <AddProject
+          showComponent={showAddProject}
           setOpenDialog={setShowAddProject}
         />
       )}
@@ -27,7 +30,7 @@ export default function SideBar(): ReactElement {
       >
         + Add Projects
       </Button>
-      <Button variant={'secondary'}>Projects</Button>
+      <ProjectList projectList={projectList} />
     </aside>
   );
 }
