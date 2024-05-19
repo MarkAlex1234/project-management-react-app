@@ -2,6 +2,8 @@ import React, { Dispatch, ReactElement, SetStateAction, useRef } from 'react';
 import Button from './Button';
 import Input from './Input';
 import { createPortal } from 'react-dom';
+import { useProjectContext } from './ProjectProvider';
+import { ProjectInterface } from '../common/interfaces';
 
 interface Props {
   showComponent: boolean;
@@ -12,10 +14,12 @@ export default function AddProject({
   showComponent,
   setOpenDialog,
 }: Props): ReactElement {
+  const { projectList, setProjectList } = useProjectContext();
+
   // Refs
-  const titleRef = useRef();
-  const descRef = useRef();
-  const dateRef = useRef();
+  const titleRef = useRef<HTMLInputElement>(null);
+  const descRef = useRef<HTMLInputElement>(null);
+  const dateRef = useRef<HTMLInputElement>(null);
 
   // Handles cancel of adding a project
   function handleCancelClick() {
@@ -25,7 +29,19 @@ export default function AddProject({
   // Handles saving a new project
   function handleSaveClick() {
     setOpenDialog((prevValue) => !prevValue);
-    console.log('TODO');
+    const payload: ProjectInterface = {
+      title: titleRef.current?.value ?? '',
+      description: descRef.current?.value ?? '',
+      date: dateRef.current?.value
+        ? new Date(dateRef.current?.value).toDateString()
+        : 'No due date',
+    };
+
+    projectList.projects.push(payload);
+
+    setProjectList(projectList);
+
+    console.log(projectList);
   }
 
   const component = (

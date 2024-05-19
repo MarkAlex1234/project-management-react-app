@@ -1,3 +1,6 @@
+This file contains the basic TailWind CSS examples I will use in this project.
+TODO remove this.
+
 <main className="h-screen my-8 flex gap-8">...</main>
 <button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">...</button>
 <input className="w-full p-1 border-b-2 rounded-sm border-stone-300 bg-stone-200 text-stone-600 focus:outline-none focus:border-stone-600" />
@@ -35,3 +38,19 @@
 <ul className="p-4 mt-8 rounded-md bg-stone-100">...</ul>
 <li className="flex justify-between my-4">...</li>
 <button className="text-stone-700 hover:text-red-500">...</button>
+
+# Project Management App
+
+## Overview
+
+This project is a basic FE only web-based application designed to manage projects, tasks, and team collaboration. The application is built using React for the front end and styled with Tailwind CSS for a modern and responsive UI.
+
+## Introduction
+
+The Project Management App aims to streamline the workflow of project teams by providing a centralized platform for tracking tasks, deadlines, and progress. Users can create projects, delete, etc.
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
+- **Vite**: A utility-first CSS framework for rapidly building custom user interfaces.

@@ -1,7 +1,7 @@
 export interface ProjectInterface {
   title: string;
   description: string;
-  date: Date;
+  date?: string;
 }
 
 export interface ProjectListInterface {
